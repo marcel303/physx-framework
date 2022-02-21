@@ -76,19 +76,16 @@ library physx
 	scan_files cpp|h path ../PhysX/physx/source/physxcharacterkinematic/src
 	header_path           ../PhysX/physx/source/physxcharacterkinematic/src
 
+	compile_definition PX_COOKING *
 	scan_files cpp|h path ../PhysX/physx/source/physxcooking/src
-	exclude_files         ../PhysX/physx/source/physxcooking/src/MeshCleaner.cpp
 	header_path           ../PhysX/physx/source/physxcooking/src
 	scan_files cpp|h path ../PhysX/physx/source/physxcooking/src/convex
-	exclude_files         ../PhysX/physx/source/physxcooking/src/convex/ConvexHullBuilder.cpp
-	exclude_files         ../PhysX/physx/source/physxcooking/src/convex/ConvexPolygonsBuilder.cpp
 	header_path           ../PhysX/physx/source/physxcooking/src/convex
 	scan_files cpp|h path ../PhysX/physx/source/physxcooking/src/mesh
-	exclude_files         ../PhysX/physx/source/physxcooking/src/mesh/TriangleMeshBuilder.cpp
 	header_path           ../PhysX/physx/source/physxcooking/src/mesh
 
 	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src
-	header_path           ../PhysX/physx/source/physxextensions/src
+	header_path           ../PhysX/physx/source/physxextensions/src expose
 	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src/serialization
 	header_path           ../PhysX/physx/source/physxextensions/src/serialization
 	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src/serialization/Binary
@@ -158,11 +155,6 @@ library physx-sampleframework
 	header_path           ../PhysX/physx/samples/sampleframework/renderer/src
 	header_path           ../PhysX/physx/samples/sampleframework/renderer/include
 
-library physx-snippetcommon
-	depend_library physx
-	scan_files cpp|h path ../PhysX/physx/snippets/snippetcommon
-	header_path           ../PhysX/physx/snippets/snippetcommon
-
 library physx-snippetrender
 	depend_library physx
 	depend_library OpenGL find
@@ -176,36 +168,160 @@ library physx-snippetutils
 	scan_files cpp|h path ../PhysX/physx/snippets/snippetutils
 	header_path           ../PhysX/physx/snippets/snippetutils
 
-app physx-snippet-articulation
-	depend_library physx-snippetcommon
+library physx-snippetcommon
+	depend_library physx
 	depend_library physx-snippetrender
 	depend_library physx-snippetutils
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcommon
+	header_path           ../PhysX/physx/snippets/snippetcommon
+
+app physx-snippet-articulation
+	depend_library physx-snippetcommon
 	scan_files cpp|h path ../PhysX/physx/snippets/snippetarticulation
+
+#app physx-snippet-bvhstructure
+#	depend_library physx-snippetcommon
+#	scan_files cpp|h path ../PhysX/physx/snippets/snippetbvhstructure
+
+app physx-snippet-contactmodification
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcontactmodification
+
+app physx-snippet-contactreport
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcontactreport
+
+app physx-snippet-contactreportccd
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcontactreportccd
+
+app physx-snippet-convert
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetconvert
+
+app physx-snippet-convexmeshcreate
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetconvexmeshcreate
+
+app physx-snippet-customjoint
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcustomjoint
+
+app physx-snippet-customprofiler
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcustomprofiler
+
+app physx-snippet-deformablemesh
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetdeformablemesh
+
+#app physx-snippet-delayloadhook
+#	depend_library physx-snippetcommon
+#	scan_files cpp|h path ../PhysX/physx/snippets/snippetdelayloadhook
+
+#app physx-snippet-hellogrb
+#	depend_library physx-snippetcommon
+#	scan_files cpp|h path ../PhysX/physx/snippets/snippethellogrb
 
 app physx-snippet-helloworld
 	depend_library physx-snippetcommon
-	depend_library physx-snippetrender
 	scan_files cpp|h path ../PhysX/physx/snippets/snippethelloworld
+
+app physx-snippet-immediatearticulation
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetimmediatearticulation
+
+app physx-snippet-immediatemode
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetimmediatemode
+
+app physx-snippet-joint
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetjoint
+
+app physx-snippet-loadcollectionn
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetloadcollection
+
+app physx-snippet-mbp
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetmbp
 
 app physx-snippet-multithreading
 	depend_library physx-snippetcommon
-	depend_library physx-snippetrender
-	depend_library physx-snippetutils
 	scan_files cpp|h path ../PhysX/physx/snippets/snippetmultithreading
 
+app physx-snippet-nestedscene
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetnestedscene
+
+app physx-snippet-prunerserialization
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetprunerserialization
 
 app physx-snippet-raycastccd
 	depend_library physx-snippetcommon
-	depend_library physx-snippetrender
 	scan_files cpp|h path ../PhysX/physx/snippets/snippetraycastccd
+
+app physx-snippet-serialization
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetserialization
+
+app physx-snippet-splitfetchresults
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetsplitfetchresults
+
+app physx-snippet-splitsim
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetsplitsim
 
 app physx-snippet-stepper
 	depend_library physx-snippetcommon
-	depend_library physx-snippetrender
-	depend_library physx-snippetutils
 	scan_files cpp|h path ../PhysX/physx/snippets/snippetstepper
 
-#app physx-snippet-vehicletank
-#	depend_library physx-snippetcommon
-#	depend_library physx-snippetutils
-#	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehicletank
+app physx-snippet-tolerancescale
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippettolerancescale
+
+app physx-snippet-trianglemeshcreate
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippettrianglemeshcreate
+
+app physx-snippet-triggers
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippettriggers
+
+app physx-snippet-vehicle4w
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehicle4w
+
+library physx-snippet-vehiclecommon
+	depend_library physx-snippetcommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehiclecommon
+
+app physx-snippet-vehiclecontactmod
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehiclecontactmod
+
+app physx-snippet-vehiclemultithreading
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehiclemultithreading
+
+app physx-snippet-vehiclenodrive
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehiclenodrive
+
+app physx-snippet-vehiclescale
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehiclescale
+
+app physx-snippet-vehicletank
+	depend_library physx-snippetcommon
+	depend_library physx-snippet-vehiclecommon
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehicletank
