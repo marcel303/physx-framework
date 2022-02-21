@@ -1,0 +1,211 @@
+library physx
+	scan_files cpp|h path ../PhysX/physx/source/common/src
+	header_path           ../PhysX/physx/source/common/src expose
+	header_path           ../PhysX/physx/source/common/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/fastxml/src
+	header_path           ../PhysX/physx/source/fastxml/include expose
+
+	header_path           ../PhysX/physx/source/filebuf/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/foundation/src
+	with_platform macos|iphoneos|linux scan_files cpp|h path ../PhysX/physx/source/foundation/src/unix
+	with_platform windows              scan_files cpp|h path ../PhysX/physx/source/foundation/src/windows
+	header_path           ../PhysX/physx/source/foundation/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src
+	header_path           ../PhysX/physx/source/geomutils/src
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/ccd
+	header_path           ../PhysX/physx/source/geomutils/src/ccd
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/common
+	header_path           ../PhysX/physx/source/geomutils/src/common
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/contact
+	header_path           ../PhysX/physx/source/geomutils/src/contact
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/convex
+	header_path           ../PhysX/physx/source/geomutils/src/convex
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/distance
+	header_path           ../PhysX/physx/source/geomutils/src/distance
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/gjk
+	header_path           ../PhysX/physx/source/geomutils/src/gjk
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/hf
+	header_path           ../PhysX/physx/source/geomutils/src/hf
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/intersection
+	header_path           ../PhysX/physx/source/geomutils/src/intersection
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/mesh
+	header_path           ../PhysX/physx/source/geomutils/src/mesh
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/pcm
+	header_path           ../PhysX/physx/source/geomutils/src/pcm
+	scan_files cpp|h path ../PhysX/physx/source/geomutils/src/sweep
+	header_path           ../PhysX/physx/source/geomutils/src/sweep
+	header_path           ../PhysX/physx/source/geomutils/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/immediatemode/src
+
+	scan_files cpp|h path ../PhysX/physx/source/lowlevel/api/src
+	header_path           ../PhysX/physx/source/lowlevel/api/include
+
+	scan_files cpp|h path ../PhysX/physx/source/lowlevel/common/src
+	header_path           ../PhysX/physx/source/lowlevel/common/src
+	scan_files cpp|h path ../PhysX/physx/source/lowlevel/common/src/pipeline
+	header_path           ../PhysX/physx/source/lowlevel/common/src/pipeline
+	header_path           ../PhysX/physx/source/lowlevel/common/include
+	header_path           ../PhysX/physx/source/lowlevel/common/include/collision
+	header_path           ../PhysX/physx/source/lowlevel/common/include/pipeline
+	header_path           ../PhysX/physx/source/lowlevel/common/include/utils
+
+	scan_files cpp|h path ../PhysX/physx/source/lowlevel/software/src
+	header_path           ../PhysX/physx/source/lowlevel/software/src
+	header_path           ../PhysX/physx/source/lowlevel/software/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/lowlevelaabb/src
+	header_path           ../PhysX/physx/source/lowlevelaabb/src
+	header_path           ../PhysX/physx/source/lowlevelaabb/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/lowleveldynamics/src
+	header_path           ../PhysX/physx/source/lowleveldynamics/src
+	header_path           ../PhysX/physx/source/lowleveldynamics/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/physx/src
+	header_path           ../PhysX/physx/source/physx/src
+	scan_files cpp|h path ../PhysX/physx/source/physx/src/buffering
+	header_path           ../PhysX/physx/source/physx/src/buffering
+	scan_files cpp|h path ../PhysX/physx/source/physx/src/device
+	header_path           ../PhysX/physx/source/physx/src/device
+	header_path           ../PhysX/physx/source/physx/src/gpu
+
+	scan_files cpp|h path ../PhysX/physx/source/physxcharacterkinematic/src
+	header_path           ../PhysX/physx/source/physxcharacterkinematic/src
+
+	scan_files cpp|h path ../PhysX/physx/source/physxcooking/src
+	exclude_files         ../PhysX/physx/source/physxcooking/src/MeshCleaner.cpp
+	header_path           ../PhysX/physx/source/physxcooking/src
+	scan_files cpp|h path ../PhysX/physx/source/physxcooking/src/convex
+	exclude_files         ../PhysX/physx/source/physxcooking/src/convex/ConvexHullBuilder.cpp
+	exclude_files         ../PhysX/physx/source/physxcooking/src/convex/ConvexPolygonsBuilder.cpp
+	header_path           ../PhysX/physx/source/physxcooking/src/convex
+	scan_files cpp|h path ../PhysX/physx/source/physxcooking/src/mesh
+	exclude_files         ../PhysX/physx/source/physxcooking/src/mesh/TriangleMeshBuilder.cpp
+	header_path           ../PhysX/physx/source/physxcooking/src/mesh
+
+	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src
+	header_path           ../PhysX/physx/source/physxextensions/src
+	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src/serialization
+	header_path           ../PhysX/physx/source/physxextensions/src/serialization
+	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src/serialization/Binary
+	header_path           ../PhysX/physx/source/physxextensions/src/serialization/Binary
+	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src/serialization/File
+	header_path           ../PhysX/physx/source/physxextensions/src/serialization/File
+	scan_files cpp|h path ../PhysX/physx/source/physxextensions/src/serialization/Xml
+	header_path           ../PhysX/physx/source/physxextensions/src/serialization/Xml
+
+	scan_files cpp|h path ../PhysX/physx/source/physxmetadata/core/src
+	header_path           ../PhysX/physx/source/physxmetadata/core/src
+	header_path           ../PhysX/physx/source/physxmetadata/core/include
+
+	scan_files cpp|h path ../PhysX/physx/source/physxmetadata/extensions/src
+	header_path           ../PhysX/physx/source/physxmetadata/extensions/src
+	header_path           ../PhysX/physx/source/physxmetadata/extensions/include
+
+	scan_files cpp|h path ../PhysX/physx/source/physxvehicle/src
+	header_path           ../PhysX/physx/source/physxvehicle/src
+	scan_files cpp|h path ../PhysX/physx/source/physxvehicle/src/physxmetadata/src
+	header_path           ../PhysX/physx/source/physxvehicle/src/physxmetadata/src
+	header_path           ../PhysX/physx/source/physxvehicle/src/physxmetadata/include
+
+	scan_files cpp|h path ../PhysX/physx/source/pvd/src
+	header_path           ../PhysX/physx/source/pvd/src
+	header_path           ../PhysX/physx/source/pvd/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/scenequery/src
+	header_path           ../PhysX/physx/source/scenequery/src
+	header_path           ../PhysX/physx/source/scenequery/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/simulationcontroller/src
+	header_path           ../PhysX/physx/source/simulationcontroller/src
+	header_path           ../PhysX/physx/source/simulationcontroller/include expose
+
+	scan_files cpp|h path ../PhysX/physx/source/task/src
+	header_path           ../PhysX/physx/source/task/src
+
+	header_path ../PhysX/physx/include expose
+	header_path ../PhysX/pxshared/include expose
+
+library physx-externals-targa
+	scan_files cpp|h path ../PhysX/externals/targa/src
+	header_path           ../PhysX/externals/targa/include expose
+
+library physx-samples-pxtoolkit
+	depend_library physx
+	scan_files cpp|h path ../PhysX/physx/samples/pxtoolkit/src
+	header_path           ../PhysX/physx/samples/pxtoolkit/include expose
+
+library physx-samplebase
+	depend_library physx
+	depend_library physx-sampleframework
+	scan_files cpp|h path ../PhysX/physx/samples/samplebase
+
+library physx-sampleframework
+	depend_library physx
+	depend_library physx-externals-targa
+	depend_library physx-samples-pxtoolkit
+	scan_files cpp|h path ../PhysX/physx/samples/sampleframework/framework/src
+	header_path           ../PhysX/physx/samples/sampleframework/framework/src
+	header_path           ../PhysX/physx/samples/sampleframework/framework/include
+	scan_files cpp|h path ../PhysX/physx/samples/sampleframework/platform/src
+	header_path           ../PhysX/physx/samples/sampleframework/platform/src
+	header_path           ../PhysX/physx/samples/sampleframework/platform/include
+	scan_files cpp|h path ../PhysX/physx/samples/sampleframework/renderer/src
+	header_path           ../PhysX/physx/samples/sampleframework/renderer/src
+	header_path           ../PhysX/physx/samples/sampleframework/renderer/include
+
+library physx-snippetcommon
+	depend_library physx
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetcommon
+	header_path           ../PhysX/physx/snippets/snippetcommon
+
+library physx-snippetrender
+	depend_library physx
+	depend_library OpenGL find
+	depend_library glut find
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetrender
+	header_path           ../PhysX/physx/snippets/snippetrender
+	compile_definition RENDER_SNIPPET 1 expose
+
+library physx-snippetutils
+	depend_library physx
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetutils
+	header_path           ../PhysX/physx/snippets/snippetutils
+
+app physx-snippet-articulation
+	depend_library physx-snippetcommon
+	depend_library physx-snippetrender
+	depend_library physx-snippetutils
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetarticulation
+
+app physx-snippet-helloworld
+	depend_library physx-snippetcommon
+	depend_library physx-snippetrender
+	scan_files cpp|h path ../PhysX/physx/snippets/snippethelloworld
+
+app physx-snippet-multithreading
+	depend_library physx-snippetcommon
+	depend_library physx-snippetrender
+	depend_library physx-snippetutils
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetmultithreading
+
+
+app physx-snippet-raycastccd
+	depend_library physx-snippetcommon
+	depend_library physx-snippetrender
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetraycastccd
+
+app physx-snippet-stepper
+	depend_library physx-snippetcommon
+	depend_library physx-snippetrender
+	depend_library physx-snippetutils
+	scan_files cpp|h path ../PhysX/physx/snippets/snippetstepper
+
+#app physx-snippet-vehicletank
+#	depend_library physx-snippetcommon
+#	depend_library physx-snippetutils
+#	scan_files cpp|h path ../PhysX/physx/snippets/snippetvehicletank
