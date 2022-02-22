@@ -127,34 +127,6 @@ library physx
 	header_path ../PhysX/physx/include expose
 	header_path ../PhysX/pxshared/include expose
 
-library physx-externals-targa
-	scan_files cpp|h path ../PhysX/externals/targa/src
-	header_path           ../PhysX/externals/targa/include expose
-
-library physx-samples-pxtoolkit
-	depend_library physx
-	scan_files cpp|h path ../PhysX/physx/samples/pxtoolkit/src
-	header_path           ../PhysX/physx/samples/pxtoolkit/include expose
-
-library physx-samplebase
-	depend_library physx
-	depend_library physx-sampleframework
-	scan_files cpp|h path ../PhysX/physx/samples/samplebase
-
-library physx-sampleframework
-	depend_library physx
-	depend_library physx-externals-targa
-	depend_library physx-samples-pxtoolkit
-	scan_files cpp|h path ../PhysX/physx/samples/sampleframework/framework/src
-	header_path           ../PhysX/physx/samples/sampleframework/framework/src
-	header_path           ../PhysX/physx/samples/sampleframework/framework/include
-	scan_files cpp|h path ../PhysX/physx/samples/sampleframework/platform/src
-	header_path           ../PhysX/physx/samples/sampleframework/platform/src
-	header_path           ../PhysX/physx/samples/sampleframework/platform/include
-	scan_files cpp|h path ../PhysX/physx/samples/sampleframework/renderer/src
-	header_path           ../PhysX/physx/samples/sampleframework/renderer/src
-	header_path           ../PhysX/physx/samples/sampleframework/renderer/include
-
 library physx-snippetrender
 	depend_library physx
 	depend_library OpenGL find
